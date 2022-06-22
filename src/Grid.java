@@ -8,7 +8,7 @@ public class Grid {
 
     //Initialise the grid    0= Empty   1=Taken  2=Obstacle 3=Finish
     public Grid(int x,int y){
-        g=new int[12][12];
+        g=new int[x][y];
         this.x=x;
         this.y=y;
 
@@ -52,15 +52,13 @@ public class Grid {
         int temp=-1;
         // When Outputting Path the sY and sX are reversed to corrospond to the row and column.
         while (sX!=(this.x-1) || sY!=(this.y-1)){
-            System.out.println(sX);
-            System.out.println(sY);
-
-            System.out.println("The paths are"+path);
-            PrintGrid();
+//            System.out.println(sX);
+//            System.out.println(sY);
+//
+//            System.out.println("The paths are"+path);
+//            PrintGrid();
             //Move Diagonally
             if( g[sX+1][sY+1]!=2 && (sX+1)!=x && (sY+1)!=y){
-                temp=-1;
-                System.out.println("Help3!");
 
                 sX++;
                 sY++;
@@ -69,9 +67,6 @@ public class Grid {
             }
             //Move Down
             else if(g[sX+1][sY]!=2 && (sX+1)!=x){
-                temp=-1;
-
-                System.out.println("Help2!");
                 sX++;
                 g[sX][sY]=1;
 
@@ -79,40 +74,38 @@ public class Grid {
             }
             //Move right
             else if(g[sX][sY+1]!=2 && (sY+1)!=y){
-                temp=-1;
-                System.out.println("Help!");
                 sY++;
                 g[sX][sY]=1;
 
                 path.add("("+sY+","+sX+")");
 
             }
-            //Move Up
-            else if(g[sX][sY-1]!=2 && (sY-1)!=-1){
-                temp=2;
-                sY--;
-                g[sX][sY]=1;
-
-                path.add("("+sY+","+sX+")");
-
-            }
-            //Move Left
-            else if(g[sX-1][sY]!=2 && (sX-1)!=-1){
-                temp=3;
-                sX--;
-                g[sX][sY]=1;
-
-                path.add("("+sY+","+sX+")");
-
-            }
-            //Move Diagonally back
-            else if(g[sX-1][sY-1]!=2 && (sY-1)!=-1 && (sX-1)!=-1){
-                temp=1;
-                sY--;
-                sX--;
-                path.add("("+sY+","+sX+")");
-
-            }
+//            //Move Up
+//            else if(g[sX][sY-1]!=2 && (sY-1)!=-1){
+//                temp=2;
+//                sY--;
+//                g[sX][sY]=1;
+//
+//                path.add("("+sY+","+sX+")");
+//
+//            }
+//            //Move Left
+//            else if(g[sX-1][sY]!=2 && (sX-1)!=-1){
+//                temp=3;
+//                sX--;
+//                g[sX][sY]=1;
+//
+//                path.add("("+sY+","+sX+")");
+//
+//            }
+//            //Move Diagonally back
+//            else if(g[sX-1][sY-1]!=2 && (sY-1)!=-1 && (sX-1)!=-1){
+//                temp=1;
+//                sY--;
+//                sX--;
+//                path.add("("+sY+","+sX+")");
+//
+//            }
 
           else{
                 System.out.println("Unable to reach delivery point!");
